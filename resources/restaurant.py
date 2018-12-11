@@ -1,11 +1,5 @@
 from flask_restful import Resource, reqparse
-from flask_jwt_extended import (
-    jwt_required,
-    get_jwt_claims,
-    get_jwt_identity,
-    jwt_optional,
-    fresh_jwt_required,
-)
+from flask_jwt_extended import (jwt_required,get_jwt_claims,get_jwt_identity,jwt_optional,fresh_jwt_required)
 
 from models.restaurant import RestaurantModel
 from scripts.placessearch import retrieve_query
@@ -21,6 +15,6 @@ class RestaurantList(Resource):
 
     def get(self):
         restaurant = retrieve_query('Restaurant', 'Paris')
-        if item:
+        if restaurant:
             return restaurant, 200
         return {"message": "Item not found."}, 404
