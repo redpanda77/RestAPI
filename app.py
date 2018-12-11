@@ -7,8 +7,9 @@ app = Flask(__name__)
 import sys
 print(sys.path)
 
-
 from db import db
+from resources.restaurant import RestaurantList
+
 
 app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///data.db"
 app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
