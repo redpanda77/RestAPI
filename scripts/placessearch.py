@@ -5,8 +5,6 @@ import os
 
 API_KEY = os.environ['API_KEY']
 
-
-
 def json(place):
     return {
         "name": place['name'],

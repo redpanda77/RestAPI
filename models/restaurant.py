@@ -6,13 +6,15 @@ class RestaurantModel(db.Model):
 
     id          = db.Column(db.Integer, primary_key=True)
     name        = db.Column(db.String(80))
+    city        = db.Column(db.String(80))
     location    = db.Column(db.String(80))
     address     = db.Column(db.String(100))
     rating      = db.Column(db.Float(precision=2))
     google_id   = db.Column(db.Integer, primary_key=True)
 
-    def __init__(self, name, location, address, rating, google_id):
+    def __init__(self, name, city, location, address, rating, google_id):
         self.name = name
+        self.city = city
         self.location = location
         self.address = address
         self.rating = rating
@@ -22,6 +24,7 @@ class RestaurantModel(db.Model):
         return {
             "id": self.id,
             "name": self.name,
+            "city": self.city,
             "location": self.location,
             "address": self.address,
             "rating": self.rating,

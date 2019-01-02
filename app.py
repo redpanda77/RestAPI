@@ -27,8 +27,8 @@ jwt = JWTManager(app)
 
 #api.add_resource(Restaurant, "/restaurant/<string:name>")
 #api.add_resource(RestaurantSearch, "/restaurant/search")
-api.add_resource(RestaurantList, "/restaurants")
+api.add_resource(RestaurantList, "/restaurants/<string:city>/<string:query>")
 
 if __name__ == "__main__":
     db.init_app(app)
-    app.run(port=5000, debug=True)
+    app.run(host='0.0.0.0', port=5000, debug=True)

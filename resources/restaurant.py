@@ -13,8 +13,8 @@ class RestaurantList(Resource):
         "rating", type=int, required=True, help="Every Restaurant needs a rating."
     )
 
-    def get(self):
-        restaurant = retrieve_query('Restaurant', 'Paris')
+    def get(self, city, query):
+        restaurant = retrieve_query(query, city)
         if restaurant:
             return restaurant, 200
         return {"message": "Item not found."}, 404
